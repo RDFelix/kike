@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comidas Rápidas KIKE - Menú</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kike-menu.com/">
+    <meta property="og:title" content="Comidas Rápidas KIKE - Menú">
+    <meta property="og:description" content="Deliciosas comidas rápidas KIKE - Salchipapas, perros calientes y más">
+    <meta property="og:image" content="cubiertos.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kike-menu.com/">
+    <meta property="twitter:title" content="Comidas Rápidas KIKE - Menú">
+    <meta property="twitter:description" content="Deliciosas comidas rápidas KIKE - Salchipapas, perros calientes y más">
+    <meta property="twitter:image" content="cubiertos.webp">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
@@ -38,28 +53,24 @@
     </style>
 </head>
 <body class="text-white">
-    <div class="container mx-auto px-4 py-8 max-w-6xl">
+    <div class="container mx-auto px-4 pb-8 max-w-6xl">
         <!-- Header with Logo and Menu Title -->
-        <div class="flex flex-col md:flex-row items-center justify-between mb-8">
-            <div class="bg-red-600 p-6 rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none">
+        <div class="flex flex-col md:flex-row items-start justify-between mb-8">
+            <div class="bg-red-600 p-6 py-20 absolute" style="clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);">
                 <div class="flex flex-col items-center">
-                    <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-                    </div>
+                    <img src="cubiertos.webp" alt="" class="h-16 w-16 text-red-600">
                     <p class="text-white font-bold text-xl">¡PIDE YA!</p>
                 </div>
             </div>
             
-            <div class="text-center md:text-right mt-6 md:mt-0">
+            <div class="text-center md:text-right mt-6 md:mt-0 w-full">
                 <p class="text-xl md:text-2xl uppercase tracking-wider text-center">COMIDAS RAPIDAS</p>
                 <h1 class="text-5xl md:text-7xl font-bold text-center">KIKE</h1>
-                <div class="menu-title text-center md:text-right">MENU</div>
+                <div class="menu-title text-center">MENU</div>
             </div>
             
-            <div class="hidden md:block">
-                <img src="https://via.placeholder.com/200x150" alt="Hot dog" class="rounded-lg">
+            <div class="absolute" style="top: -100px; right: -100px; z-index: -9999;">
+                <img src="hot_dog.webp" alt="Hot dog" class="rounded-lg w-20">
             </div>
         </div>
 
@@ -197,7 +208,7 @@
         
         <!-- Decorative Elements -->
         <div class="flex justify-between">
-            <img src="https://via.placeholder.com/100" alt="Tomate" class="rounded-full">
+            <img src="tomates.webp" alt="Tomate" class="rounded-full">
         </div>
     </div>
 </body>
