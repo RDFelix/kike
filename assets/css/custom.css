@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+body {
+    font-family: 'Oswald', sans-serif;
+    background-color: #121212;
+}
+.menu-title {
+    font-size: 8rem;
+    line-height: 1;
+    font-weight: 700;
+}
+.section-title {
+    position: relative;
+    z-index: 10;
+}
+.section-title::before,
+.section-title::after {
+    content: "";
+    position: absolute;
+    height: 7px;
+    background-color: #ff1a1a;
+    top: 50%;
+    width: 30px;
+}
+.section-title::before {
+    left: -55px;
+}
+.section-title::after {
+    right: -55px;
+}
