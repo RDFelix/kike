@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
 body {
     font-family: 'Oswald', sans-serif;
-    background-color: #121212;
+    background-color: rgb(11, 11, 11);
 }
+
 .menu-title {
     font-size: 8rem;
     line-height: 1;
     font-weight: 700;
 }
+
 .section-title {
     position: relative;
     z-index: 10;
@@ -26,4 +28,16 @@ body {
 }
 .section-title::after {
     right: -55px;
+}
+
+.section-hexagono {
+    clip-path: polygon(5% 0%, 95% 0%, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
+}
+
+.fondo-degradado {
+    background: linear-gradient(
+        to bottom,
+        rgb(11, 11, 11) 0vh,
+        transparent 5vh
+    );
 }
