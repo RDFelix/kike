@@ -31,7 +31,7 @@
                 </div>
             </a>
             
-            <div class="text-center text-garet-bold md:text-right mt-24 md:mt-0 w-full">
+            <div class="text-center text-garet-bold md:text-right mt-28 md:mt-0 w-full">
                 <div class="animation-aparcer-1">
                     <p class="text-xl md:text-2xl uppercase tracking-wider text-center">COMIDAS RAPIDAS</p>
                     <div class="flex justify-center">
@@ -50,14 +50,14 @@
         </section>
 
         <!-- Salchipapas Section -->
-        <div class="border border-red-600 rounded-lg p-6 mb-8">
-            <div class="flex justify-center mb-6">
+        <section class="border border-red-600 rounded-lg p-6 mb-8">
+            <article class="flex justify-center mb-6">
                 <div class="relative section-title">
                     <h2 class="text-lg md:text-2xl font-bold uppercase bg-red-600 px-4 md:px-8 py-2 section-hexagono">SALCHIPAPAS</h2>
                 </div>
-            </div>
+            </article>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <article class="grid grid-cols-1 md:grid-cols-2 gap-8 section-select">
                 <!-- Tentacion -->
                 <div class="flex justify-between items-start">
                     <div>
@@ -113,12 +113,12 @@
                     </div>
                     <div class="text-red-600 font-bold text-xl">$32.000</div>
                 </div>
-            </div>
-        </div>
+            </article>
+        </section>
 
         <section class="md:grid md:grid-cols-2 gap-x-8 gap-y-4">
             <!-- MEGA Familiar Section -->
-            <article class="border border-red-600 rounded-lg p-6 mb-8">
+            <article class="border border-red-600 rounded-lg p-6 mb-8 section-select">
                 <div class="flex justify-between items-start">
                     <div>
                         <h3 class="text-2xl font-bold mb-1">MEGA Familiar</h3>
@@ -130,7 +130,7 @@
             </article>
             
             <!-- Perro Caliente Section -->
-            <article class="border border-red-600 rounded-lg p-6 mb-8">
+            <article class="border border-red-600 rounded-lg p-6 mb-8 section-select">
                 <div class="flex justify-center mb-6">
                     <div class="relative section-title">
                         <h2 class="text-lg md:text-2xl font-bold uppercase bg-red-600 px-4 md:px-8 py-2 section-hexagono">PERRO CALIENTE</h2>
@@ -149,6 +149,7 @@
             
             <!-- Salsas Section -->
             <article class="border border-red-600 rounded-lg p-6 mb-8">
+
                 <div class="flex justify-center mb-6">
                     <div class="relative section-title">
                         <h2 class="text-lg md:text-2xl font-bold uppercase bg-red-600 px-4 md:px-8 py-2 section-hexagono">SALSAS</h2>
@@ -196,5 +197,110 @@
     </div>
 </body>
 </html>
+<script>
+// Create cart container
+const cartContainer = document.createElement('div');
+cartContainer.className = 'fixed bottom-4 right-4 bg-white text-black p-4 rounded-lg shadow-lg z-50 w-80';
+cartContainer.style.display = 'none';
 
+// Create header with title and minimize button
+const header = document.createElement('div');
+header.className = 'flex justify-between items-center mb-4';
+const title = document.createElement('h3');
+title.className = 'font-bold';
+title.textContent = 'Tu Pedido';
+const minimizeBtn = document.createElement('button');
+minimizeBtn.className = 'text-gray-500 hover:text-gray-700';
+minimizeBtn.innerHTML = '−';
+header.appendChild(title);
+header.appendChild(minimizeBtn);
+cartContainer.appendChild(header);
 
+// Create items container
+const itemsContainer = document.createElement('div');
+itemsContainer.className = 'space-y-2 max-h-48 overflow-y-auto';
+cartContainer.appendChild(itemsContainer);
+
+// Create order button
+const orderButton = document.createElement('button');
+orderButton.className = 'bg-red-600 text-white px-4 py-2 rounded-lg w-full mt-4';
+orderButton.textContent = '¡Ordenar!';
+cartContainer.appendChild(orderButton);
+
+document.body.appendChild(cartContainer);
+
+// Store selected items
+let selectedItems = [];
+
+// Add click event listeners to sections
+document.querySelectorAll('.section-select').forEach(section => {
+    section.addEventListener('click', function(e) {
+        const title = this.querySelector('h3')?.textContent || '';
+        const price = this.querySelector('.text-red-600')?.textContent || '';
+        const description = this.querySelector('.text-gray-400')?.textContent || '';
+        
+        // Add item to selected items
+        selectedItems.push({ title, price, description });
+        
+        // Show cart container
+        cartContainer.style.display = 'block';
+        
+        // Update items display
+        updateItemsDisplay();
+    });
+});
+
+// Update items display function
+function updateItemsDisplay() {
+    itemsContainer.innerHTML = '';
+    selectedItems.forEach((item, index) => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'flex justify-between items-start border-b pb-2';
+        itemElement.innerHTML = `
+            <div>
+                <p class="font-bold">${item.title}</p>
+                <p class="text-sm text-gray-500">${item.price}</p>
+            </div>
+            <button class="text-red-600" onclick="removeItem(${index})">×</button>
+        `;
+        itemsContainer.appendChild(itemElement);
+    });
+}
+
+// Remove item function
+window.removeItem = function(index) {
+    selectedItems.splice(index, 1);
+    updateItemsDisplay();
+    if (selectedItems.length === 0) {
+        cartContainer.style.display = 'none';
+    }
+}
+
+// Minimize/maximize functionality
+let isMinimized = false;
+minimizeBtn.addEventListener('click', () => {
+    if (isMinimized) {
+        itemsContainer.style.display = 'block';
+        orderButton.style.display = 'block';
+        minimizeBtn.innerHTML = '−';
+    } else {
+        itemsContainer.style.display = 'none';
+        orderButton.style.display = 'none';
+        minimizeBtn.innerHTML = '+';
+    }
+    isMinimized = !isMinimized;
+});
+
+// Order button click handler
+orderButton.addEventListener('click', () => {
+    if (selectedItems.length === 0) return;
+    
+    const message = selectedItems.map(item => 
+        `*${item.title}*\n${item.description}\n${item.price}`
+    ).join('\n\n');
+    
+    const fullMessage = `¡Hola! Me gustaría ordenar:\n\n${message}`;
+    const encodedMessage = encodeURIComponent(fullMessage);
+    window.open(`https://wa.me/573154905049?text=${encodedMessage}`, '_blank');
+});
+</script>
