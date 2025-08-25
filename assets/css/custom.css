@@ -1,7 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+/* Fuente Anton */
+@font-face {
+    font-family: 'Anton';
+    src: url('../fonts/anton/AntonSC-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Fuente Garet */
+@font-face {
+    font-family: 'Garet-regular';
+    src: url('../fonts/garet/Garet-Book.woff2') format('woff2'),
+         url('../fonts/garet/Garet-Book.woff') format('woff'),
+         url('../fonts/garet/Garet-Book.ttf') format('truetype'),
+         url('../fonts/garet/Garet-Book.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Garet-bold';
+    src: url('../fonts/garet/Garet-Heavy.woff2') format('woff2'),
+         url('../fonts/garet/Garet-Heavy.woff') format('woff'),
+         url('../fonts/garet/Garet-Heavy.ttf') format('truetype'),
+         url('../fonts/garet/Garet-Heavy.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Garet-regular', sans-serif;
     background-color: rgb(11, 11, 11);
+}
+
+.text-garet-regular {
+    font-family: 'Garet-regular', sans-serif;
+}
+
+.text-garet-bold {
+    font-family: 'Garet-bold', sans-serif;
+}
+
+.text-anton {
+    font-family: 'Anton', sans-serif;
 }
 
 .menu-title {
@@ -38,6 +81,77 @@ body {
     background: linear-gradient(
         to bottom,
         rgb(11, 11, 11) 0vh,
-        transparent 5vh
+        transparent 20vh
     );
+}
+
+.animation-desplazar-abajo {
+    animation: desplazar 0.8s ease-in-out;
+}
+
+@keyframes desplazar {
+    0% {
+        transform: translateY(-100%);
+        scale: 0.8;
+        opacity: 0;
+
+    }
+    100% {
+        transform: translateY(0);
+        scale: 1;
+        opacity: 1;
+
+    }
+}
+
+.animation-desplazar-izquierda-1 {
+    animation: desplazar-izquierda 1s ease-in-out;
+}
+
+.animation-desplazar-izquierda-2 {
+    animation: desplazar-izquierda 1.3s ease-in-out;
+}
+
+@keyframes desplazar-izquierda {
+    0% {
+        transform: translateX(100%);
+        scale: 0.8;
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+
+.animation-aparcer-1 {
+    animation: aparcer 0.8s ease-in-out;
+}
+
+.animation-aparcer-2 {
+    animation: aparcer 2s ease-in-out;
+}
+
+@keyframes aparcer {
+    0% {
+        transform: translateY(10px);
+        scale: 0.8;
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section-title::before {
+        left: -40px;
+    }
+    .section-title::after {
+        right: -40px;
+    }
 }

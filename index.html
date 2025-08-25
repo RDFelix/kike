@@ -17,41 +17,44 @@
     <link rel="stylesheet" href="./assets/css/output.css">
     <link rel="stylesheet" href="./assets/css/custom.css">
 </head>
-<body class="text-white flex flex-col justify-end">
-    <img src="./assets/img/fondo.webp" alt="" class="w-screen h-[150vh] absolute -z-[51]" style="filter: brightness(0.3);">
-    <div class="fondo-degradado w-screen h-[150vh] absolute -z-50"></div>
-
-    <div class="container mx-auto px-4 pb-8 max-w-6xl">
+<body class="text-white flex justify-center items-end overflow-x-hidden">
+    <img src="./assets/img/fondo.webp" alt="" class="absolute -z-[51]" style="filter: brightness(0.3);">
+    <div class="fondo-degradado absolute -z-50"></div>
+    <div class="px-8 md:px-md">
         <!-- Header with Logo and Menu Title -->
-        <div class="flex flex-col md:flex-row items-start justify-between mb-8">
-            <div class="bg-red-600 px-2 py-7 md:px-6 md:py-20 absolute" style="clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);">
+        <section class="flex flex-col md:flex-row items-start justify-between mb-8">
+            <a href="https://wa.me/3154905049" class="cursor-pointer transition-all hover:py-12 bg-red-600 px-2 py-7 md:left-9 md:px-6 md:py-20 absolute animation-desplazar-abajo" style="clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);">
+
                 <div class="flex flex-col items-center">
                     <img src="./assets/img/cubiertos.webp" alt="" class="w-5 h-5 md:h-16 md:w-16 text-red-600">
                     <p class="text-white font-bold text-sm md:text-xl">¡PIDE YA!</p>
+                    <span class="text-white font-bold text-[10px] md:text-xl">click aquí</span>
                 </div>
-            </div>
+            </a>
             
-            <div class="text-center md:text-right mt-20 md:mt-0 w-full">
-                <p class="text-xl md:text-2xl uppercase tracking-wider text-center">COMIDAS RAPIDAS</p>
-                <div class="flex justify-center">
-                    <div class="px-2 md:px-8 rounded-md relative section-title">
-                        <h1 class="text-5xl md:text-7xl font-bold text-center">KIKE</h1>
+            <div class="text-center text-garet-bold md:text-right mt-20 md:mt-0 w-full">
+                <div class="animation-aparcer-1">
+                    <p class="text-xl md:text-2xl uppercase tracking-wider text-center">COMIDAS RAPIDAS</p>
+                    <div class="flex justify-center">
+                        <div class="px-2 md:px-8 rounded-md relative section-title">
+                            <h1 class="text-5xl md:text-7xl font-bold text-center">KIKE</h1>
+                        </div>
                     </div>
                 </div>
-                <div class="menu-title text-center">MENU</div>
+                <div class="menu-title text-center animation-aparcer-2 text-anton">MENU</div>
             </div>
             
             <div class="absolute top-0 right-0 -z-10">
-                <img src="./assets/img/circulo_rojo.svg" alt="" class="w-50 h-50 absolute top-[-40%] right-[-40%]">
-                <img src="./assets/img/hot_dog.webp" alt="Hot dog" class="rounded-lg w-60 h-auto top-[-20px] right-[-100px] relative">
+                <img src="./assets/img/circulo_rojo.svg" alt="" class="w-50 h-50 md:w-[350px] md:h-[350px] absolute top-[-40%] right-[-40%] animation-desplazar-izquierda-1">
+                <img src="./assets/img/hot_dog.webp" alt="Hot dog" class="rounded-lg w-60 md:w-[390px] h-auto top-[-20px] right-[-100px] relative animation-desplazar-izquierda-2">
             </div>
-        </div>
+        </section>
 
         <!-- Salchipapas Section -->
         <div class="border border-red-600 rounded-lg p-6 mb-8">
             <div class="flex justify-center mb-6">
                 <div class="relative section-title">
-                    <h2 class="text-2xl font-bold uppercase bg-red-600 px-8 py-2 section-hexagono">SALCHIPAPAS</h2>
+                    <h2 class="text-lg md:text-2xl font-bold uppercase bg-red-600 px-4 md:px-8 py-2 section-hexagono">SALCHIPAPAS</h2>
                 </div>
             </div>
             
@@ -131,7 +134,8 @@
             <article class="border border-red-600 rounded-lg p-6 mb-8">
                 <div class="flex justify-center mb-6">
                     <div class="relative section-title">
-                        <h2 class="text-2xl font-bold uppercase bg-red-600 px-8 py-2 section-hexagono">PERRO CALIENTE</h2>
+                        <h2 class="text-lg md:text-2xl font-bold uppercase bg-red-600 px-4 md:px-8 py-2 section-hexagono">PERRO CALIENTE</h2>
+
                     </div>
                 </div>
                 
@@ -148,7 +152,7 @@
             <article class="border border-red-600 rounded-lg p-6 mb-8">
                 <div class="flex justify-center mb-6">
                     <div class="relative section-title">
-                        <h2 class="text-2xl font-bold uppercase bg-red-600 px-8 py-2 section-hexagono">SALSAS</h2>
+                        <h2 class="text-lg md:text-2xl font-bold uppercase bg-red-600 px-4 md:px-8 py-2 section-hexagono">SALSAS</h2>
                     </div>
                 </div>
 
@@ -172,9 +176,14 @@
                 </div>
             </article>
         </section>
+
         <!-- Horario y Teléfono -->
-        <div class="text-center mb-8">
-            <h2 class="text-2xl font-bold mb-4">HORARIO <span class="text-red-600">6:30PM - 10PM</span></h2>
+        <section class="text-center mb-8">
+            <div class="flex justify-center mb-6 text-anton">
+                    <div class="relative section-title">
+                        <h2 class="text-3xl px-4 md:px-8 py-2">HORARIO <span class="text-red-600">6:30PM - 10PM</span</h2>
+                    </div>
+                </div>
             <div class="bg-red-600 py-4 rounded-lg">
                 <a href="https://wa.me/573154905049" class="flex items-center justify-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -184,7 +193,7 @@
                 </a>
                 <p class="text-xl font-bold"></p>
             </div>
-        </div>
+        </section>
     </div>
 </body>
 </html>
